@@ -1,4 +1,4 @@
-
+<style>
 .mapboxgl-popup-content {
 color: steelblue;
 FONT-SIZE: larger;
@@ -45,3 +45,4 @@ cursor: pointer;
 .location.active{
 background-color: #dfd7d0b3;
 }
+</style>
