@@ -1,0 +1,47 @@
+
+.mapboxgl-popup-content {
+color: steelblue;
+FONT-SIZE: larger;
+padding: 0px 0px 0px !important;
+border-radius: 4px;
+overflow: auto;
+box-shadow: 0px 0px 4px 4px #cccccc50;
+}
+.detail-popup{
+margin-left: 0.5em;
+font-size: 12px;
+color: darkgrey;
+}
+
+.detail-hot{
+margin-left: 0.5em;
+}
+
+.mapboxgl-popup-content>p    {
+color: #1f384d;
+font-size: 14px;
+line-height: 24px;
+margin-left: 0.5em;
+}
+
+.star{
+background-image: url('https://uploads-ssl.webflow.com/64b0c2fb2d406f1e5b293842/64b0d83d20c91d8818356c5c_location-selected.svg');
+background-size: cover;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+
+}
+
+.star.show{
+background-image: url('https://uploads-ssl.webflow.com/64b0c2fb2d406f1e5b293842/64b0d83c71277766e0df303f_location-not-selected.svg');
+background-size: cover;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+}
+.location.active{
+background-color: #dfd7d0b3;
+}
