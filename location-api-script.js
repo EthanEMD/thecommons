@@ -1,7 +1,7 @@
 // Wrap your code inside a DOMContentLoaded event handler
 document.addEventListener("DOMContentLoaded", function () {
     // Your geoip function
-    function geoip(json) {
+    function geoip(json, event) {
         // Log the received JSON data to the console
         console.log('Received JSON data:', json);
         // Extract the region property from the JSON object
@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
         var currentURL = new URL(window.location.href);
         currentURL.searchParams.set('state', state);
         var newURL = currentURL.toString();
+
+        // Prevent the default click behavior (prevents scrolling)
+        if (event) {
+            event.preventDefault();
+        }
 
         // Change the URL without causing the page to jump
         window.history.replaceState({}, '', newURL);
