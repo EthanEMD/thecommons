@@ -6,11 +6,11 @@ function geoip(json) {
     // Log the region to the console
     console.log('Region:', region);
     // Determine the state based on the region, default to VIC if not recognized
-    var state = "vic"; // Default to VIC
+    var state = "VIC"; // Default to VIC (uppercase)
     if (region === "New South Wales" || region === "NSW") {
-        state = "nsw";
+        state = "NSW"; // Uppercase
     } else if (region === "Victoria" || region === "VIC") {
-        state = "vic";
+        state = "VIC"; // Uppercase
     } else {
         // Log a message if the region is not recognized
         console.log('Unrecognized region:', region);
@@ -18,27 +18,16 @@ function geoip(json) {
     // Log the determined state to the console
     console.log('Determined State:', state);
 
-    // Function to select the div element based on the determined state
-    function clickDivElement(state, event) {
-        const divElement = document.getElementById(state + '-radio');
-        if (divElement) {
-            divElement.click();
+    // Update the query parameter in the URL
+    var currentURL = new URL(window.location.href);
+    currentURL.searchParams.set('state', state);
+    var newURL = currentURL.toString();
+    window.history.replaceState({}, '', newURL);
 
-            // Assuming the map section has an ID like "map-section"
-            // Set its visibility to "visible" after the click
-            const mapSection = document.getElementById("map-section");
-            if (mapSection) {
-                mapSection.style.visibility = "visible";
-            }
-
-            // Prevent the default click behavior (prevents scrolling)
-            event.preventDefault();
-        } else {
-            // Log a message if the div element is not found
-            console.log('Div element not found for state:', state);
-        }
+    // Assuming the map section has an ID like "map-section"
+    // Set its visibility to "visible"
+    const mapSection = document.getElementById("map-section");
+    if (mapSection) {
+        mapSection.style.visibility = "visible";
     }
-
-    // Call clickDivElement with the event object
-    clickDivElement(state, event);
 }
