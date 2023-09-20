@@ -21,6 +21,9 @@ function geoip(json) {
     function clickDivElement(state) {
         const divElement = document.getElementById(state + '-radio');
         if (divElement) {
+            // Scroll to the top of the div element smoothly
+            divElement.scrollIntoView({ behavior: 'smooth' });
+            // Click the div element
             divElement.click();
         } else {
             // Log a message if the div element is not found
