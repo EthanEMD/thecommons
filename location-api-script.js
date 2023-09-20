@@ -20,43 +20,48 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         // Log the determined state to the console
         console.log('Determined State:', state);
-        
-        // Function to handle intersection changes
-        function handleIntersection(entries) {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    // The element is now in view, click it
-                    const divElement = document.getElementById(state + '-radio');
-                    if (divElement) {
-                        divElement.click();
-                        observer.unobserve(entry.target); // Stop observing once clicked
-                    } else {
-                        // Log a message if the div element is not found
-                        console.log('Div element not found for state:', state);
-                    }
-                }
-            });
-        }
-
-        // Create an Intersection Observer
-        const observer = new IntersectionObserver(handleIntersection);
 
         // Function to select the div element based on the determined state
-        function watchDivElement(state) {
+        function clickDivElement(state) {
             const divElement = document.getElementById(state + '-radio');
             if (divElement) {
-                // Start observing the element
-                observer.observe(divElement);
+                divElement.click();
             } else {
                 // Log a message if the div element is not found
                 console.log('Div element not found for state:', state);
             }
         }
 
-        // Start observing the div element based on the determined state
-        watchDivElement(state);
+        // Click the div element based on the determined state
+        clickDivElement(state);
     }
 
-    // Call the geoip function when the page is fully loaded
-    geoip(/* your JSON data */);
+    // Function to handle intersection changes for the map-section div
+    function handleMapSectionIntersection(entries) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Call the geoip function when the map-section div is in view
+                geoip(/* your JSON data */);
+                // Disconnect the observer to prevent further triggers
+                observer.disconnect();
+            }
+        });
+    }
+
+    // Create an Intersection Observer to watch the map-section div
+    const observer = new IntersectionObserver(handleMapSectionIntersection, {
+        root: null, // Use the viewport as the root
+        threshold: 0.5, // Trigger when at least 50% of the element is in view
+    });
+
+    // Select the map-section div by its ID
+    const mapSection = document.getElementById("map-section");
+
+    if (mapSection) {
+        // Start observing the map-section div
+        observer.observe(mapSection);
+    } else {
+        // Log a message if the map-section div is not found
+        console.log('Map section not found.');
+    }
 });
