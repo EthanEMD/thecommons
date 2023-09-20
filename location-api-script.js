@@ -1,5 +1,7 @@
 // Wrap your code inside a DOMContentLoaded event listener
 document.addEventListener("DOMContentLoaded", function () {
+    console.log('DOMContentLoaded event triggered.'); // Log a message when the DOMContentLoaded event is triggered
+    
     // Your geoip function
     function geoip(json) {
         // Log the received JSON data to the console
@@ -64,7 +66,4 @@ document.addEventListener("DOMContentLoaded", function () {
         // Log a message if the map-section div is not found
         console.log('Map section not found.');
     }
-
-    // Log a message when the DOMContentLoaded event is triggered
-    console.log('DOMContentLoaded event triggered.');
 });
