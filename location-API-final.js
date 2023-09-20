@@ -41,8 +41,4 @@ document.addEventListener("DOMContentLoaded", function() {
             mapSection.style.visibility = "visible";
         }
     }
-
-    // Example usage of geoip function
-    var exampleJson = { region: "New South Wales" };
-    geoip(exampleJson);
 });
