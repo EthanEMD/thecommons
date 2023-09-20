@@ -57,7 +57,7 @@ $(".slider-main_component").each(function (index) {
     speed: sliderDuration,
     loop: loopMode,
     autoHeight: false,
-    centeredSlides: loopMode,
+    centeredSlides: false,
     followFinger: true,
     freeMode: false,
     slideToClickedSlide: false,
