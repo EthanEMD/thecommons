@@ -64,4 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Log a message if the map-section div is not found
         console.log('Map section not found.');
     }
+
+    // Log a message when the DOMContentLoaded event is triggered
+    console.log('DOMContentLoaded event triggered.');
 });
