@@ -1,3 +1,38 @@
+// Function to select the div element based on the determined state
+function clickDivElement(state) {
+    const divElement = document.getElementById(state + '-radio');
+    if (divElement) {
+        divElement.click();
+    } else {
+        // Log a message if the div element is not found
+        console.log('Div element not found for state:', state);
+    }
+}
+
+// Callback function to handle intersection changes
+function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // The target element (div with class "section_home-space") is in view
+            // You can call your script here to click the element
+            const state = "vic"; // Determine your state here as needed
+            clickDivElement(state);
+        }
+    });
+}
+
+// Create an Intersection Observer instance
+const observer = new IntersectionObserver(handleIntersection);
+
+// Target the div with class "section_home-space"
+const targetElement = document.querySelector('.section_home-space');
+
+// Start observing the target element
+if (targetElement) {
+    observer.observe(targetElement);
+}
+
+// Your existing geoip function
 function geoip(json) {
     // Log the received JSON data to the console
     console.log('Received JSON data:', json);
@@ -17,25 +52,4 @@ function geoip(json) {
     }
     // Log the determined state to the console
     console.log('Determined State:', state);
-
-    // Function to select the div element based on the determined state
-    function clickDivElement(state) {
-        const divElement = document.getElementById(state + '-radio');
-        if (divElement) {
-            divElement.click();
-            
-            // Assuming the map section has an ID like "map-section"
-            // Set its visibility to "visible" after the click
-            const mapSection = document.getElementById("map-section");
-            if (mapSection) {
-                mapSection.style.visibility = "visible";
-            }
-        } else {
-            // Log a message if the div element is not found
-            console.log('Div element not found for state:', state);
-        }
-    }
-
-    // Click the div element based on the determined state
-    clickDivElement(state);
 }
