@@ -22,6 +22,11 @@ function geoip(json) {
     var currentURL = new URL(window.location.href);
     currentURL.searchParams.set('state', state);
     var newURL = currentURL.toString();
+    
+    // Prevent the default click behavior (prevents scrolling)
+    event.preventDefault();
+
+    // Change the URL without causing the page to jump
     window.history.replaceState({}, '', newURL);
 
     // Assuming the map section has an ID like "map-section"
