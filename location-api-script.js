@@ -1,7 +1,3 @@
-window.onload = function() {
-    // Scroll to the top of the page
-    window.scrollTo(0, 0);
-}
 
 function geoip(json) {
     // Log the received JSON data to the console
@@ -34,4 +30,11 @@ function geoip(json) {
     }
     // Click the div element based on the determined state
     clickDivElement(state);
+}
+
+window.onload = function() {
+    setTimeout(function() {
+        // Scroll to the top of the page
+        window.scrollTo(0, 0);
+    }, 0);
 }
