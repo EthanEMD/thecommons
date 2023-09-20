@@ -21,19 +21,19 @@
         // Log the determined state to the console
         console.log('Determined State:', state);
 
-        // Function to select the div element based on the determined state
-        function clickDivElement(state) {
-            const divElement = document.getElementById(state + '-radio');
-            if (divElement) {
-                divElement.click();
-            } else {
-                // Log a message if the div element is not found
-                console.log('Div element not found for state:', state);
-            }
-        }
+        // // Function to select the div element based on the determined state
+        // function clickDivElement(state) {
+        //     const divElement = document.getElementById(state + '-radio');
+        //     if (divElement) {
+        //         divElement.click();
+        //     } else {
+        //         // Log a message if the div element is not found
+        //         console.log('Div element not found for state:', state);
+        //     }
+        // }
 
-        // Click the div element based on the determined state
-        clickDivElement(state);
+        // // Click the div element based on the determined state
+        // clickDivElement(state);
     }
 
     // Function to handle intersection changes for the map-section div
