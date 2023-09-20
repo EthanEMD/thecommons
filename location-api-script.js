@@ -17,19 +17,39 @@ function geoip(json) {
     }
     // Log the determined state to the console
     console.log('Determined State:', state);
+    
+    // Function to handle intersection changes
+    function handleIntersection(entries) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // The element is now in view, click it
+                const divElement = document.getElementById(state + '-radio');
+                if (divElement) {
+                    divElement.click();
+                    observer.unobserve(entry.target); // Stop observing once clicked
+                } else {
+                    // Log a message if the div element is not found
+                    console.log('Div element not found for state:', state);
+                }
+            }
+        });
+    }
+
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver(handleIntersection);
+
     // Function to select the div element based on the determined state
-    function clickDivElement(state) {
+    function watchDivElement(state) {
         const divElement = document.getElementById(state + '-radio');
         if (divElement) {
-            // Scroll to the top of the div element smoothly
-            divElement.scrollIntoView({ behavior: 'smooth' });
-            // Click the div element
-            divElement.click();
+            // Start observing the element
+            observer.observe(divElement);
         } else {
             // Log a message if the div element is not found
             console.log('Div element not found for state:', state);
         }
     }
-    // Click the div element based on the determined state
-    clickDivElement(state);
+
+    // Start observing the div element based on the determined state
+    watchDivElement(state);
 }
