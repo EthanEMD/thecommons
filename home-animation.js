@@ -78,7 +78,7 @@ $(".slider-main_component").each(function (index) {
     breakpoints: {
       // mobile landscape
       480: {
-        slidesPerView: 1.3,
+        slidesPerView: 1.15,
         spaceBetween: "4%"
       },
       // tablet
