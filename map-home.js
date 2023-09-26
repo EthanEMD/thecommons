@@ -3,7 +3,7 @@ var map = new mapboxgl.Map(
 {container:'map',
 style : 'mapbox://styles/ethanq/clk20w9tk003s01rj078oas6s',
 center: [144.977731, -37.823803],
-zoom: 12,
+zoom: 11,
 projection : 'globe' });
 
 var current_popup, current_marker, current_item;
@@ -25,13 +25,13 @@ $("input[name='state-filter']").on("change", function () {
   if (selectedState === "VIC") {
     map.flyTo({
       center: vicCoordinates,
-      zoom: 12,
+      zoom: 11,
       essential: true
     });
   } else if (selectedState === "NSW") {
     map.flyTo({
       center: nswCoordinates,
-      zoom: 12,
+      zoom: 11,
       essential: true
     });
   } else {
@@ -103,7 +103,7 @@ el.addEventListener('click', () => {
 	current_marker=el; // set the current popup active
 	current_marker.classList.add('show'); // add class to marker to change the image
 	map.flyTo({center: [lon, lat],
-		zoom:15,
+		zoom:11,
 		essential: true // this animation is considered essential with respect to prefers-reduced-motion
 		});
 });
