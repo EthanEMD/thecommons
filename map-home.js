@@ -3,7 +3,7 @@ var map = new mapboxgl.Map(
 {container:'map',
 style : 'mapbox://styles/ethanq/clk20w9tk003s01rj078oas6s',
 center: [144.977731, -37.823803],
-zoom: 13,
+zoom: 12,
 projection : 'globe' });
 
 var current_popup, current_marker, current_item;
@@ -25,13 +25,13 @@ $("input[name='state-filter']").on("change", function () {
   if (selectedState === "VIC") {
     map.flyTo({
       center: vicCoordinates,
-      zoom: 13,
+      zoom: 12,
       essential: true
     });
   } else if (selectedState === "NSW") {
     map.flyTo({
       center: nswCoordinates,
-      zoom: 13,
+      zoom: 12,
       essential: true
     });
   } else {
